@@ -1,17 +1,25 @@
 # Blazor Codespaces Integration
 
-This repository contains a Blazor Web App with Interactive Server rendering, integrated with the [Blazor DataGrid](https://www.syncfusion.com/blazor-components/blazor-datagrid), and configured to run in [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces) by using a development container.
+## Overview
 
-It enables a cloud-based development experience without requiring a local environment setup.
+This sample demonstrates how to run a Blazor Web App with Interactive Server rendering in [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces) while integrating the Syncfusion [Blazor DataGrid](https://www.syncfusion.com/blazor-components/blazor-datagrid). The repository includes a preconfigured development container that automatically prepares the required .NET environment, restores dependencies, and forwards application ports for browser access.
 
-## Features
+The sample is designed for developers who want to evaluate, learn, or develop Syncfusion Blazor applications without setting up a complete local development environment. By using GitHub Codespaces, the application can be built, run, and tested entirely from the browser with minimal configuration.
 
-- Blazor Web App with Interactive Server rendering
-- [Blazor DataGrid](https://www.syncfusion.com/blazor-components/blazor-datagrid) integration
-- Preconfigured `.devcontainer` for Codespaces
-- [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) environment
-- Automatic dependency restoration and setup
-- Ready-to-run sample with minimal configuration
+## Key Features
+
+- Interactive Server rendering enabled through the `@rendermode InteractiveServer` directive.
+- Data binding implemented through the `DataSource` property of the `SfGrid` component.
+- Runtime generation of sample order records in the `OnInitialized()` lifecycle method.
+- Strongly typed `Order` model containing `OrderID`, `CustomerName`, `ShipCity`, `OrderDate`, and `Freight` properties.
+- Automatic display of model fields as DataGrid columns through Syncfusion's auto-generated column feature.
+- Sample data generation using randomized customer names and shipping cities for DataGrid population.
+- GitHub Codespaces development environment configured using a prebuilt .NET 10 development container.
+- Automatic installation of WebAssembly tools through the `postCreateCommand` container initialization step.
+- Automatic NuGet package restoration through the `postStartCommand` configuration.
+- Port forwarding configured for port 5000 with automatic browser launch when the application starts.
+- Preconfigured Visual Studio Code extensions for C#, Blazor, Docker, GitHub Codespaces, and .NET development.
+- Development environment variables configured for ASP.NET Core Development mode and container-based execution.
 
 ## Prerequisites
 
@@ -79,13 +87,19 @@ After running the application:
 
 The application will load in your browser.
 
-## DataGrid implementation
+## Project Structure
 
-This sample demonstrates the integration of the [Blazor DataGrid](https://www.syncfusion.com/blazor-components/blazor-datagrid) component within a Blazor Web App.
+`.devcontainer/devcontainer.json` - GitHub Codespaces development container configuration, .NET 10 SDK image selection, VS Code extension setup, port forwarding, environment variables, and automated initialization commands.
 
-It shows how the DataGrid can be added and rendered using Interactive Server mode in a Codespaces-enabled environment.
+`Pages/Home.razor` - Main application page routed to `/` that demonstrates the Syncfusion DataGrid using Interactive Server rendering and displays generated order data through the `SfGrid` component.
 
-## References
+## Support and Feedback
 
+- For general product questions, visit the [Syncfusion Community Forum](https://www.syncfusion.com/forums) or [Syncfusion Support](https://www.syncfusion.com/support).
+- To report an issue specific to this sample, open a GitHub issue in this repository.
+- Official documentation: https://blazor.syncfusion.com/documentation/common/integration/blazor-with-github-codespaces
 - [Getting Started with Blazor DataGrid in Blazor Web App](https://blazor.syncfusion.com/documentation/datagrid/getting-started-with-web-app)
-- [Integrating Blazor DataGrid with PDF Viewer](https://blazor.syncfusion.com/documentation/common/integration/blazor-with-pdf-viewer)  
+
+## License
+
+This is a Syncfusion sample project provided to demonstrate product usage. Review the [Syncfusion license terms](https://www.syncfusion.com/sales/pricing?category=ui-components) before using Syncfusion components in your own applications.
